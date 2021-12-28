@@ -99,23 +99,36 @@ Also, verify the schema by running.
 
 ## Step 4: Repeat
 
-Repeat the command to read your file.
+Repeat the command to read your file and see what happens.
 
-> Think about it: What just happened?
+<details>
+  <summary>What just happened?</summary>
+  The running the file returned two kinds of errors. The first error, "table
+  pies already exists", is returned because the running the file again caused
+  the <code>CREATE TABLE pies</code> statement to run again when there is
+  already a pies table. The second error, "UNIQUE constraint failed:
+  pies.flavor", is returned because the <code>flavors</code> column in the
+  pies table is a primary key column and primary key values must be unique.
+  Running the file again attempted to 1) create an already existing pies table,
+  and 2) duplicate the entries in the pies table.
+</details>
 
 ## Step 5: Prevent duplicate data
 
-If you wanted to reset your database using this file, you need to add this line
+To prevent the errors from occurring in the previous step, you can reset the
+pies table before you create the table and insert data into it.
+
+If you want to reset the pies table using this file, you need to add this line
 at the beginning of `create-table.sql`:
 
 ```sql
 DROP TABLE IF EXISTS pies;
 ```
 
-If the `pies` table exists, it will be dropped first before recreating it.
+If the `pies` table exists, it will be dropped first before re-creating it.
 
 Save your file, and re-run the command to read you file (which now drops the
-table, creates the table, and loads the data).
+table, creates the table, and inserts the data).
 
 Verify you have neither errors nor duplicate data by re-running the `SELECT`
 statement above.
