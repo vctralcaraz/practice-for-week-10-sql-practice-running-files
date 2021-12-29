@@ -77,7 +77,7 @@ INSERT INTO pies VALUES('Milk Bar', 46.00);
 
 ## Step 2: Populating your database
 
-In SQLite3 CLI, run the command to reads the file __create-table.sql__.
+In SQLite3 CLI, run the command to read and run the file __create-table.sql__.
 
 > Tip: If you can't remember which command to use, you can run `.help` to review
 > the available commands in SQLite3.
@@ -91,7 +91,7 @@ following `SELECT` query:
 SELECT * FROM pies ORDER BY flavor;
 ```
 
-Also, verify the schema by running.
+Also, verify the schema by running:
 
 ```sqlite3
 .schema
